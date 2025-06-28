@@ -46,10 +46,14 @@
         //   res.statusCode = 302
         //   res.setHeader('Location','/')
 
-        req.on('data',(chunk)=>{
+        req.on('data',chunk =>{
             console.log(chunk)
         })
         
+          fs.writeFileSync('user.text','vinod Garg')
+          res.statusCode = 302
+          res.setHeader('Location','/')
+
       }
   
       // Default fallback

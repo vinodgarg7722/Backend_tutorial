@@ -54,6 +54,10 @@
             const fullBody = Buffer.concat(body).toString();
             console.log(fullBody)
         })
+
+          fs.writeFileSync('user.text','vinod Garg')
+          res.statusCode = 302
+          res.setHeader('Location','/')
         
       }
   

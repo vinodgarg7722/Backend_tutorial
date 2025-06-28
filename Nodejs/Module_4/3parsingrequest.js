@@ -56,15 +56,15 @@
             const params = new URLSearchParams(fullBody)
 
             //Method-1
-            // const bodyobject={}
-            // for (const[key,value] of params.entries()){
-            //       bodyobject[key]=value
-            // }
-            // console.log(bodyobject)
+            const bodyobject={}
+            for (const[key,value] of params.entries()){
+                  bodyobject[key]=value
+            }
+            console.log(bodyobject)
 
             //Method-2
-            const bodyobject = Object.fromEntries(params)
-            console.log(bodyobject)
+            // const bodyobject = Object.fromEntries(params)
+            // console.log(bodyobject)
 
         })
         

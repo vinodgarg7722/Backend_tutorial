@@ -43,30 +43,41 @@ const userRequestHandler = (req, res) => {
         //   fs.writeFileSync('user.text','vinod Garg')
         //   res.statusCode = 302
         //   res.setHeader('Location','/')
-        const body = []
-        req.on('data', (chunk) => {
-            console.log(chunk)
-            body.push(chunk)
-        })
-        req.on('end', () => {
-            const fullBody = Buffer.concat(body).toString();
-            console.log(fullBody)
 
-            const params = new URLSearchParams(fullBody)
 
-            //Method-1
-            // const bodyobject={}
-            // for (const[key,value] of params.entries()){
-            //       bodyobject[key]=value
-            // }
-            // console.log(bodyobject)
+        req.on('data', chunk => {
+            console.log(chunk);
+        });
 
-            //Method-2
-            const bodyobject = Object.fromEntries(params)
-            console.log(bodyobject)
-            fs.writeFileSync('user.text', JSON.stringify(bodyobject))
+        fs.writeFileSync('user.text', 'vinod Garg')
+        res.statusCode = 302
+        res.setHeader('Location', '/')
 
-        })
+
+        // const body = []
+        // req.on('data', (chunk) => {
+        //     console.log(chunk)
+        //     body.push(chunk)
+        // })
+        // req.on('end', () => {
+        //     const fullBody = Buffer.concat(body).toString();
+        //     console.log(fullBody)
+
+        //     const params = new URLSearchParams(fullBody)
+
+        //     //Method-1
+        //     // const bodyobject={}
+        //     // for (const[key,value] of params.entries()){
+        //     //       bodyobject[key]=value
+        //     // }
+        //     // console.log(bodyobject)
+
+        //     //Method-2
+        //     const bodyobject = Object.fromEntries(params)
+        //     console.log(bodyobject)
+        //     fs.writeFileSync('user.text', JSON.stringify(bodyobject))
+
+        // })
 
     }
 
