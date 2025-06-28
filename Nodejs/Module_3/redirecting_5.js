@@ -44,20 +44,25 @@ const server = http.createServer((req, res) => {
     else if (req.url.toLowerCase() === "/submit-details" && req.method === "POST") {
         let body = "";
 
-        req.on("data", chunk => {
-            body += chunk.toString(); // form data as string
-        });
 
-        req.on("end", () => {
-            // Save the submitted data in file
-            fs.writeFileSync("user.txt", body); // same data, now saved from user
+        fs.writeFileSync('user.txt','vinod garg');
+        res.statusCode=302;  // 302-> redirection code
+        res.setHeader('Location','/')
 
-            res.statusCode = 302;
-            res.setHeader("Location", "/");
-            return res.end();
-        });
+        // req.on("data", chunk => {
+        //     body += chunk.toString(); // form data as string
+        // });
 
-        return;
+        // req.on("end", () => {
+        //     // Save the submitted data in file
+        //     fs.writeFileSync("user.txt", body); // same data, now saved from user
+
+        //     res.statusCode = 302;
+        //     res.setHeader("Location", "/");
+        //     return res.end();
+        // });
+
+        // return;
     }
 
     // Default fallback
